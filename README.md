@@ -15,7 +15,7 @@
   Modalità brute force: Testa tutte le possibili combinazioni di caratteri fino a trovare quella corretta.
   Modalità ibrida: Combina un attacco di dizionario con modifiche alle parole (mangling rules) per aumentare le probabilità di successo.
 
-## Esecuzione di John
+## Esecuzione di John (Eseguito con successo)
 Puoi eseguire John con un semplice comando:
   "john <file_hash>"
 Per utilizzare una wordlist specifica, si usa:
@@ -45,3 +45,32 @@ La sessione viene salvata automaticamente ogni 10 minuti nel file di stato.
 Questo comando crea un file di testo chiamato rar_hash.txt che contiene l'hash del file RAR.
 4. Cracking della password: hai lanciato John con: john.exe hash.txt
 5. Visualizzazione del risultato: john.exe --show hash.txt
+
+## Comandi di base
+- Cracking di un hash:
+    john <file_hash>
+Dove <file_hash> è il file contenente gli hash da crackare.
+
+- Cracking con una wordlist personalizzata:
+    john --wordlist=password.lst <file_hash>
+Dove password.lst è il file di parole che utilizzi.
+
+- Mostrare i risultati (password trovate):
+    john --show <file_hash>
+Modalità di cracking
+
+- Brute Force (Incrementale):
+    john --incremental <file_hash>
+
+- Dizionario con regole avanzate:
+    john --wordlist=password.lst --rules <file_hash>
+Estrazione degli hash (per file ZIP, RAR, ecc.)
+
+- Per file ZIP:
+    zip2john file.zip > zip_hash.txt
+
+- Per file RAR:
+    rar2john file.rar > rar_hash.txt
+
+Riprendere una sessione di cracking interrotta:
+    john --restore
