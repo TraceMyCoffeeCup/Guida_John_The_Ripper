@@ -6,6 +6,8 @@ Utilizza tecniche avanzate per decifrare password sicure e cifrati.
 
 ## Come Usare John the Ripper
 1. **Scarica e installa** John the Ripper. Puoi farlo dal [sito ufficiale](https://www.openwall.com/john/).
+2. **Prepara gli hash delle password** da craccare (vedi esempio di file `hash.txt`).
+3. **Esegui John the Ripper** utilizzando i dizionari e i formati supportati.
 
 ### Passaggi:
 1. Scarica John the Ripper dal sito ufficiale.
