@@ -1,0 +1,136 @@
+1. Comandi di base
+Avviare il cracking di un hash:
+
+bash
+Copia
+Modifica
+john <file_hash>
+Dove <file_hash> è il file che contiene gli hash da crackare.
+
+Utilizzare una wordlist personalizzata:
+
+bash
+Copia
+Modifica
+john --wordlist=password.lst <file_hash>
+Dove password.lst è il file di parole da provare.
+
+Mostrare le password trovate:
+
+bash
+Copia
+Modifica
+john --show <file_hash>
+Interrompere e riprendere una sessione di cracking:
+
+Per interrompere la sessione in corso:
+
+bash
+Copia
+Modifica
+Ctrl+C
+Per riprendere la sessione:
+
+bash
+Copia
+Modifica
+john --restore
+2. Modalità di cracking
+Dizionario (con una wordlist personalizzata):
+
+bash
+Copia
+Modifica
+john --wordlist=password.lst --rules <file_hash>
+Brute Force (per provare tutte le combinazioni di caratteri):
+
+bash
+Copia
+Modifica
+john --incremental <file_hash>
+Modalità ibrida (combina dizionario e mangling):
+
+bash
+Copia
+Modifica
+john --wordlist=password.lst --rules=Jumbo <file_hash>
+3. Gestione degli hash
+Estrazione dell’hash da un file ZIP o RAR:
+
+Per file ZIP:
+
+bash
+Copia
+Modifica
+zip2john file.zip > zip_hash.txt
+Per file RAR:
+
+bash
+Copia
+Modifica
+rar2john file.rar > rar_hash.txt
+Cracking di un file ZIP o RAR:
+
+bash
+Copia
+Modifica
+john zip_hash.txt
+4. Opzioni avanzate
+Utilizzare un formato specifico per l'hash (ad esempio, bcrypt):
+
+bash
+Copia
+Modifica
+john --format=bcrypt <file_hash>
+Utilizzare OpenMP per il cracking parallelo su più core:
+
+bash
+Copia
+Modifica
+john --fork=4 <file_hash>
+Dove 4 è il numero di processi paralleli che vuoi utilizzare (questo è utile su sistemi con più core).
+
+Eseguire il cracking in modalità "incremental" su un file di hash:
+
+bash
+Copia
+Modifica
+john --incremental=all <file_hash>
+Cracking di hash utilizzando regole avanzate di mangling:
+
+bash
+Copia
+Modifica
+john --wordlist=password.lst --rules <file_hash>
+5. File di stato e report
+Creare un file di report durante l'esecuzione:
+
+bash
+Copia
+Modifica
+john --status
+Esportare e visualizzare lo stato del cracking:
+
+bash
+Copia
+Modifica
+john --status
+Creare un file di stato durante l'esecuzione per il recupero successivo:
+
+bash
+Copia
+Modifica
+john --restore
+6. Comandi per l’analisi dei risultati
+Visualizzare i risultati del cracking (includendo le password trovate):
+
+bash
+Copia
+Modifica
+john --show <file_hash>
+Esportare i risultati in un file di testo:
+
+bash
+Copia
+Modifica
+john --show --pot=output.pot <file_hash>
